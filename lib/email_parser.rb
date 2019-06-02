@@ -7,10 +7,10 @@
 require 'pry'
 
 class EmailParser 
-  attr_accessor :email 
+  attr_accessor :emails  
   
-  def initialize(email)
-    @email = email
+  def initialize(emails)
+    @emails = emails
   end  
 
 =begin
@@ -18,14 +18,14 @@ class EmailParser
   parse space delimited emails 
   parse both CSV adn space delimited emails
   parses and removes duplicate emails
+  into an Array, iterate through
 =end
  
-  def parse   # email == "avi@test.com, arel@test.com"
-    # binding.pry
-    new_email = email.split(", ")
-    binding.pry
-    
-    
-  end
+  
+  def parse
+    email_split = emails.split.map {|address| address.split(',')} #.split will separate the emails, .map invokes |address| once, giving .split(',')
+    new_email = email_split.flatten.uniq      # .flatten will return the new array; every element in the array gets extracted into a new array 
+
+end
   
 end
