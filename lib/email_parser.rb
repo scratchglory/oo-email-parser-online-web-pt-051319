@@ -13,19 +13,11 @@ class EmailParser
     @emails = emails
   end  
 
-=begin
-  parses CSV emails
-  parse space delimited emails 
-  parse both CSV adn space delimited emails
-  parses and removes duplicate emails
-  into an Array, iterate through
-=end
- 
-  
   def parse
-    email_split = emails.split.map {|address| address.split(',')} #.split will separate the emails, .map invokes |address| once, giving .split(',')
-    new_email = email_split.flatten.uniq      # .flatten will return the new array; every element in the array gets extracted into a new array 
-
-end
+# binding.pry
+    email_split = emails.split.map {|address| address.split(",")} #.split will separate the emails, .map invokes |address| once, giving .split(',')
+binding.pry
+    email_split.flatten.uniq      # .flatten will return the new array; every element in the array gets extracted into a new array 
+  end # .split.map will return it in an array
   
 end
